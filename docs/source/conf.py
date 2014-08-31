@@ -27,9 +27,6 @@ from hummingbird import __version__
 extensions = [
     'sphinx.ext.autodoc',
     'sphinxcontrib.napoleon',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.viewcode',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

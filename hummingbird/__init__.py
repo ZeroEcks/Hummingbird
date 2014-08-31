@@ -8,8 +8,7 @@ __version__ = '0.0.2-r1'
 
 class Hummingbird(object):
     """
-    Wrapper for the Hummingbird API v1
-    .. moduleauthor:: Melody Kelly <melody@melody.blue>
+    Object for the wrapper for the Hummingbird API v1
     """
 
     headers = {'content-type': 'application/json'}
@@ -18,7 +17,7 @@ class Hummingbird(object):
 
     def __init__(self, username, password):
         """Sets up the API, tests if your auth is valid.
-        Args:
+        Paramater:
             username (str): Your hummingbird username.
             password (str): Your hummingbird password.
 
