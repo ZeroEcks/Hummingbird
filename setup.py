@@ -21,7 +21,7 @@ with open(os.path.join(HERE, PACKAGE_NAME, '__init__.py')) as fp:
 
 setup(
     name="Hummingbird",
-    version="0.0.1",
+    version=VERSION,
     author="Melody Kelly",
     author_email="melody@melody.blue",
     description=("An API Wrapper for Hummingbird.me"),
