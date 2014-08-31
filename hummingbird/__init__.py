@@ -3,6 +3,8 @@ import requests
 
 from hummingbird.objects import *
 
+__version__ = '0.0.1'
+
 
 class Hummingbird(object):
     """
