@@ -7,9 +7,7 @@ __version__ = '0.0.2-r1'
 
 
 class Hummingbird(object):
-    """
-    Object for the wrapper for the Hummingbird API v1
-    """
+    """Object for the wrapper for the Hummingbird API v1"""
 
     headers = {'content-type': 'application/json'}
     auth_token = ''
@@ -17,12 +15,17 @@ class Hummingbird(object):
 
     def __init__(self, username, password):
         """Sets up the API, tests if your auth is valid.
-        Paramater:
-            username (str): Your hummingbird username.
-            password (str): Your hummingbird password.
+        Attributes
+        ----------
+            username : str
+                Your hummingbird username.
+            password : str
+                Your hummingbird password.
 
-        Raises:
-            ValueError when authentication fails.
+        Raises
+        -----
+        ValueError
+            If the authentication fails.
         """
 
         self.auth_token = self.authenticate(username, password)
