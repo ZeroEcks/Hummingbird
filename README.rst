@@ -1,15 +1,14 @@
 .. _main_page:
 
-Hummingbird: The Python Hummingbird API v1 Wrapper
-==================================================
+Hummingbird: The Python Hummingbird API Wrapper
+===============================================
 
 .. begin_description
 
 .. image:: https://travis-ci.org/KnightHawk3/Hummingbird.svg
     :target: https://travis-ci.org/KnightHawk3/Hummingbird
 
-Hummingbird is a wrapper that aims to create a simple interface to
- hummingbird.me's API. 
+Hummingbird is a wrapper that aims to create a simple interface to hummingbird.me's API. 
 
 Here's a example, getting the information about "Neon Genesis Evangelion"
 
@@ -38,7 +37,7 @@ Installation
 ------------
 
 Hummingbird is supported by anything above python 3.0. The recommended way
-to install is via `pip <http://pypi.python.org/pypi/pip>`
+to install is via `pip <http://pypi.python.org/pypi/pip>`_
 
 .. code-block:: bash
 
