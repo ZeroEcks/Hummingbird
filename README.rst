@@ -7,7 +7,10 @@ Hummingbird: The Python Hummingbird API Wrapper
 
 .. image:: https://travis-ci.org/KnightHawk3/Hummingbird.svg
     :target: https://travis-ci.org/KnightHawk3/Hummingbird
-
+.. image:: https://badge.waffle.io/KnightHawk3/Hummingbird.png?label=ready&title=Ready 
+ :target: https://waffle.io/KnightHawk3/Hummingbird
+ :alt: 'Stories in Ready'
+ 
 Hummingbird is a wrapper that aims to create a simple interface to hummingbird.me's API. 
 
 Here's a example, getting the information about "Neon Genesis Evangelion"
