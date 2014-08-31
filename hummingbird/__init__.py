@@ -3,7 +3,7 @@ import requests
 
 from hummingbird.objects import *
 
-__version__ = '0.0.2'
+__version__ = '0.0.2-r1'
 
 
 class Hummingbird(object):
@@ -47,8 +47,6 @@ class Hummingbird(object):
         elif method == "GET":
             url = '{API_URL}{API_PATH}'.format(API_URL=self.api_url,
                                                 API_PATH=path)
-            print(url)
-
             r = requests.get(url, params=params, headers=self.headers)
             return r
 
