@@ -1,3 +1,6 @@
+.. image:: https://badge.waffle.io/KnightHawk3/Hummingbird.png?label=ready&title=Ready 
+ :target: https://waffle.io/KnightHawk3/Hummingbird
+ :alt: 'Stories in Ready'
 .. _main_page:
 
 Hummingbird: The Python Hummingbird API Wrapper
