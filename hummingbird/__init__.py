@@ -107,13 +107,13 @@ class Hummingbird(object):
     def get_library(self, username, status=None):
         """Fetches a users library.
         Args:
-            username (str): the user to get the library of
-            status (str): only return the items with the supplied status. Can be
+          username (str): The user to get the library from.
+          status (str): only return the items with the supplied status. Can be
                 one of `currently-watching`, `plan-to-watch`, `completed`,
                 `on-hold` or `dropped`.
 
         Returns:
-           List of Library objects.
+          List of Library objects.
         """
 
         r = self._query_('/users/%s/library' % username, 'GET',
