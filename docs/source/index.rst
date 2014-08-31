@@ -20,11 +20,11 @@ References and Other Relevant Things
 * `Hummingbirds's Source Code <https://github.com/hummingbird-me/hummingbird>`_
 * `Hummingbird's API Documentation <https://github.com/hummingbird-me/hummingbird/wiki/API-Reference>`_. Seriously, this is 99% of what you need to know, this documentation just tells you the names of the functions.
 
-.. include:: ../README.rst
+.. include:: ../../README.rst
    :start-after: begin_installation
    :end-before: end_installation
 
-.. include:: ../README.rst
+.. include:: ../../README.rst
    :start-after: begin_support
    :end-before: end_support
 
