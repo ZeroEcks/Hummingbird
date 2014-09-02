@@ -11,7 +11,7 @@ class Hummingbird(object):
 
     headers = {'content-type': 'application/json'}
     auth_token = ''
-    api_url = "http://hummingbird.me/api/v1"
+    api_url = "http://hummingbird.me/api/v"
 
     def __init__(self, username, password):
         """Sets up the API, tests if your auth is valid.
@@ -24,7 +24,7 @@ class Hummingbird(object):
 
         self.auth_token = self.authenticate(username, password)
 
-    def _query_(self, path, method, params={}):
+    def _query_(self, path, method, params={}, ver=1):
         """Used internally for requests.
 
         :param str path: The path to hit.
@@ -36,9 +36,11 @@ class Hummingbird(object):
             Requests object -- Requires you to handle the status codes yourself.
         """
 
+        ver = str(ver) #just to be clean
+
         if method == "POST":
-            url = '{API_URL}{API_PATH}'.format(API_URL=self.api_url,
-                                                API_PATH=path)
+            url = '{API_URL}{VER}{API_PATH}'.format(API_URL=self.api_url,
+                                                VER = ver, API_PATH=path)
 
             r = requests.post(url, data=json.dumps(params),
                               headers=self.headers)
@@ -77,7 +79,8 @@ class Hummingbird(object):
         """
 
         r = self._query_('/anime/%s' % anime_id, 'GET',
-                         params={'title_language_preference': title_language})
+                         params={'title_language_preference': title_language},
+                         ver=2)
         return Anime(r.json())
 
     def search_anime(self, query):

@@ -5,15 +5,22 @@ class Anime(object):
 
     anime_id = 0
     slug = ''
+    title = {'canonical':'','english':'','romanji':''}
     status = ''
     url = ''
-    title = ''
-    alternate_title = ''
     episode_count = 0
+    episode_length = 0
     cover_image = ''
     synopsis = ''
     show_type = ''
     genres = []
+    airInfo = {'start':'','end':''}
+    screencaps = []
+    yt_id = ''
+    com_rating = 0
+    age_rating = ''
+
+
 
     def __init__(self, anime_dict):
         """
@@ -26,14 +33,19 @@ class Anime(object):
 
         self.anime_id = anime_dict['id']
         self.slug = anime_dict['slug']
+        self.title = (anime_dict['canonical_title'],anime_dict['english_title'],anime_dict['romaji_title'])
         self.status = anime_dict['status']
         self.url = anime_dict['url']
-        self.title = anime_dict['title']
-        self.alternate_title = anime_dict['alternate_title']
         self.episode_count = anime_dict['episode_count']
+        self.episode_length = anime_dict['episode_length']
         self.cover_image = anime_dict['cover_image']
         self.synopsis = anime_dict['synopsis']
         self.show_type = anime_dict['show_type']
+        self.airInfo = (anime_dict['started_airing'],anime_dict['finished_airing'])
+        self.screencaps =  anime_dict['screencaps']
+        self.yt_id =  anime_dict['youtube_trailer_id']
+        self.com_rating = anime_dict['community_rating']
+        self.age_rating =  anime_dict['age_rating']
         try:
             self.genres = anime_dict['genres']
         except KeyError:
