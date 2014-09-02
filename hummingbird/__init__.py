@@ -38,14 +38,14 @@ class Hummingbird(object):
 
         if method == "POST":
             url = '{API_URL}{API_PATH}'.format(API_URL=self.api_url,
-                                                API_PATH=path)
+                                               API_PATH=path)
 
             r = requests.post(url, data=json.dumps(params),
                               headers=self.headers)
             return r
         elif method == "GET":
             url = '{API_URL}{API_PATH}'.format(API_URL=self.api_url,
-                                                API_PATH=path)
+                                               API_PATH=path)
             r = requests.get(url, params=params, headers=self.headers)
             return r
 
