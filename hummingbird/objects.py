@@ -32,6 +32,7 @@ class Anime(object):
         """
 
         self.anime_id = anime_dict['id']
+        self.mal_id = anime_dict['mal_id']
         self.slug = anime_dict['slug']
         self.status = anime_dict['status']
         self.url = anime_dict['url']
