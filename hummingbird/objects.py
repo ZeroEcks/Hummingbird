@@ -4,15 +4,22 @@ class Anime(object):
     """
 
     anime_id = 0
+    mal_id = 0
     slug = ''
     status = ''
     url = ''
     title = ''
     alternate_title = ''
+    cover_image = ''
     episode_count = 0
+    episode_length = 0
     cover_image = ''
     synopsis = ''
     show_type = ''
+    community_rating = 0
+    age_rating = ''
+    started_airing = ''
+    finished_airing = ''
     genres = []
 
     def __init__(self, anime_dict):
@@ -31,9 +38,14 @@ class Anime(object):
         self.title = anime_dict['title']
         self.alternate_title = anime_dict['alternate_title']
         self.episode_count = anime_dict['episode_count']
+        self.episode_length = anime_dict['episode_length']
         self.cover_image = anime_dict['cover_image']
         self.synopsis = anime_dict['synopsis']
         self.show_type = anime_dict['show_type']
+        self.community_rating = anime_dict['community_rating']
+        self.age_rating = anime_dict['age_rating']
+        self.started_airing = anime_dict['started_airing']
+        self.finished_airing = anime_dict['finished_airing']
         try:
             self.genres = anime_dict['genres']
         except KeyError:
@@ -61,7 +73,7 @@ class LibraryEntry(object):
         """
         entry_dict: A dictionary witht he elements of a library entry struct
 
-        Instalises the class and assigns all the elements to internal objects.
+        Init the class and assigns all the elements to internal objects.
 
         notes_present determines if notes is empty or not, you can check by
             seeing if notes is '' also.
@@ -165,7 +177,7 @@ class Favorite(object):
     item_type = ''
     created_at = ''
     updated_at = ''
-    fav_rank = 0
+    fav_rank = 0    # Should be ignored, as per API Docs
 
     def __init__(self, fav_dict):
         """
