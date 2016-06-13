@@ -31,9 +31,14 @@ class HummingbirdTest(unittest.TestCase, object):
         for item in search:
             self.assertIn(item.title, ['Petit Eva: Evangelion@School',
                                        'Neon Genesis Evangelion',
-                                       'Evangelion: 4.0',
+                                       'Neon Genesis Evangelion: The End of Evangelion',
                                        'Evangelion: 1.0 You Are (Not) Alone',
-                                       'Evangelion: 2.0 You Can (Not) Advance'])
+                                       'Evangelion: 2.0 You Can (Not) Advance',
+                                       'Evangelion: 3.0 You Can (Not) Redo ',
+                                       'Neon Genesis Evangelion: Death & Rebirth',
+                                       'Schick x Evangelion',
+                                       'Evangelion x JRA',
+                                       'Evangelion: 3.0+1.0'])
 
     def test_get_library(self):
         """ Test if getting a users library works """
