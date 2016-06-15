@@ -242,17 +242,17 @@ class Story(object):
         """
 
         self.story_id = story_dict['id']
-        self.user = Miniuser(story_dict['user'])
+        self.user = MiniUser(story_dict['user'])
         self.updated_at = story_dict['updated_at']
         self.story_type = story_dict['story_type']
         if self.story_type == 'comment':
             self.self_post = story_dict['self_post']
-            self.poster = Miniuser(story_dict['poster'])
-        elif self.story_type == media_story:
+            self.poster = MiniUser(story_dict['poster'])
+        elif self.story_type == 'media_story':
             self.media = Anime(story_dict['media'])
         self.substories_count = story_dict['substories_count']
-        for item in story_dict['substories_count']:
-            self.substories.append(Substory(story_dict['substories']))
+        for item in range(story_dict['substories_count']):
+            self.substories.append(Substory(story_dict['substories'][item]))
 
 
 class Substory(object):
@@ -267,7 +267,7 @@ class Substory(object):
     episode_number = 0
     followed_user = None
     new_status = ''
-    service = None
+    #service = None         #Should be ignored as per API
     permissions = {}
 
     def __init__(self, story_dict):
@@ -284,11 +284,8 @@ class Substory(object):
         elif self.substory_type == 'watched_episode':
             self.episode_number = story_dict['episode_number']
         elif self.substory_type == 'watchlist_status_update':
-            self.service = story_dict['service']
+            #self.service = story_dict['service']
             self.new_status = story_dict['new_status']
         elif self.substory_type == 'followed':
-            self.followed_user = Miniuser(story_dict['followed_user'])
-
+            self.followed_user = MiniUser(story_dict['followed_user'])
         self.created_at = story_dict['created_at']
-        for item in story_dict['substories_count']:
-            self.substories.append(Substory(story_dict['substories']))

@@ -112,6 +112,19 @@ class Hummingbird(object):
             results.append(LibraryEntry(item))
         return results
 
+    def get_feed(self, username):
+        """Gets a user's feed.
+
+        :param str username: User to fetch feed from.
+        """
+
+        r = self._query_('/users/%s/feed' % username, 'GET')
+
+        results = []
+        for item in r.json():
+            results.append(Story(item))
+        return results
+
     def update_entry(self, anime_id, status=None, privacy=None, rating=None,
                      sane_rating_update=None, rewatched_times=None, notes=None,
                      episodes_watched=None, increment_episodes=None):

@@ -46,6 +46,12 @@ class HummingbirdTest(unittest.TestCase, object):
         for item in library:
             print(item.anime.title)
 
+    def test_get_feed(self):
+        """ Tests getting user feed """
+        feed = self.api.get_feed(self.un)
+        for item in feed:
+            print(item.story_id)
+
 
 if __name__ == '__main__':
         unittest.main()
