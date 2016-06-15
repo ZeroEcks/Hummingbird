@@ -3,7 +3,7 @@ import requests
 
 from hummingbird.objects import *
 
-__version__ = '0.0.2-r1'
+__version__ = '0.0.3'
 
 
 class Hummingbird(object):
