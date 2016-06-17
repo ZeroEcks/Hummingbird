@@ -3,7 +3,7 @@ import requests
 
 from hummingbird.objects import *
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 
 class Hummingbird(object):
@@ -89,9 +89,8 @@ class Hummingbird(object):
 
         r = self._query_('/search/anime', 'GET',
                          params={'query': query})
-        results = []
-        for item in r.json():
-            results.append(Anime(item))
+
+        results = [Anime(item) for item in r.json()]
         return results
 
     def get_library(self, username, status=None):
@@ -107,10 +106,20 @@ class Hummingbird(object):
 
         r = self._query_('/users/%s/library' % username, 'GET',
                          params={'status': status})
-        results = []
-        for item in r.json():
-            results.append(LibraryEntry(item))
+
+        results = [LibraryEntry(item) for item in r.json()]
         return results
+
+    def get_user(self, username):
+        """Get user information.
+
+        :param str username: User to get info on.
+        """
+
+        r = self._query_('/users/%s' % username, 'GET')
+
+        result = User(r.json())
+        return result
 
     def get_feed(self, username):
         """Gets a user's feed.
@@ -120,9 +129,19 @@ class Hummingbird(object):
 
         r = self._query_('/users/%s/feed' % username, 'GET')
 
-        results = []
-        for item in r.json():
-            results.append(Story(item))
+
+        results = [Story(item) for item in r.json()]
+        return results
+
+    def get_favorites(self, username):
+        """Get a user's favorite anime.
+
+        :param str username: User to get favorites from.
+        """
+
+        r = self._query_('/users/%s/favorite_anime' % username, 'GET')
+
+        results = [Favorite(item) for item in r.json()]
         return results
 
     def update_entry(self, anime_id, status=None, privacy=None, rating=None,
@@ -173,4 +192,15 @@ class Hummingbird(object):
             'increment_episodes': increment_episodes})
 
         if not (r.status_code == 200 or r.status_code == 201):
+            raise ValueError
+
+    def remove_entry(self, anime_id):
+        """Removes an entry from the user's library.
+
+        :param anime_id: The Anime ID or slug.
+        """
+
+        r = self._query_('libraries/%s/remove' % anime_id, 'POST')
+
+        if not r.status_code == 200:
             raise ValueError

@@ -118,6 +118,10 @@ class User(object):
     """
     Object to model a user.
     """
+    # Favorites ommitted due to poor integration and conflicting response for
+    # favorties when getting via get_user() and get_favorites(). Besides, no
+    # need to duplicate getting favorites. Either get them or don't, or use
+    # get_favorites() to populate it.
 
     name = ''
     waifu = ''
@@ -137,7 +141,7 @@ class User(object):
     last_library_update = ''
     online = False
     following = ''
-    favorites = []
+    #favorites = []
 
     def __init__(self, user_dict):
         """
@@ -161,23 +165,26 @@ class User(object):
         self.show_adult_content = user_dict['show_adult_content']
         self.title_language_preference = user_dict['title_language_preference']
         self.last_library_update = user_dict['last_library_update']
-        self.online = user_dict['online']
         self.following = user_dict['following']
-        for item in user_dict['favorites']:
-            self.favorites.append(Favorite(item))
+        #for item in user_dict['favorites']:
+        #    self.favorites.append(Favorite(item))
+        # Omitting becuase 'online' didn't show up in JSON response (??)
+        #self.online = user_dict['online']
 
 
 class Favorite(object):
     """
     Object to model a favorite anime.
     """
+    # Okay, HB's docs are wrong. This is not fun anymore.
 
+    anime_id = 0
     fav_id = 0
-    user_id = 0
-    item_id = 0
-    item_type = ''
-    created_at = ''
-    updated_at = ''
+    #user_id = 0
+    #item_id = 0
+    #item_type = ''
+    #created_at = ''
+    #updated_at = ''
     fav_rank = 0    # Should be ignored, as per API Docs
 
     def __init__(self, fav_dict):
@@ -186,13 +193,14 @@ class Favorite(object):
 
         Instalises the class and assigns all the elements to internal objects.
         """
-        self.fav_id = fav_dict['id']
-        self.user_id = fav_dict['user_id']
-        self.item_id = fav_dict['item_id']
-        self.item_type = fav_dict['item_type']
-        self.created_at = fav_dict['created_at']
-        self.updated_at = fav_dict['updated_at']
-        self.fav_rank = fav_dict['fav_rank']
+        self.anime_id = fav_dict['id']
+        self.fav_id = fav_dict['fav_id']
+        #self.user_id = fav_dict['user_id']
+        #self.item_id = fav_dict['item_id']
+        #self.item_type = fav_dict['item_type']
+        #self.created_at = fav_dict['created_at']
+        #self.updated_at = fav_dict['updated_at']
+        self.fav_rank = fav_dict['fav_rank']    # Should be ignored
 
 
 class MiniUser(object):

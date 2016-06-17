@@ -46,12 +46,23 @@ class HummingbirdTest(unittest.TestCase, object):
         for item in library:
             print(item.anime.title)
 
+    def test_get_user(self):
+        """ Test if getting user info works """
+        user = self.api.get_user('covabishop')  # Shameless self-promotion
+        print(user.waifu)
+
     def test_get_feed(self):
         """ Tests getting user feed """
         feed = self.api.get_feed(self.un)
         for item in feed:
             print(item.story_id)
 
+    def test_get_favorites(self):
+        """ Tests getting user favorites. """
+        favs = self.api.get_favorites('covabishop')
+        for fav in favs:
+            current = self.api.get_anime(fav.anime_id)
+            print(current.title)
 
 if __name__ == '__main__':
         unittest.main()
